@@ -16,4 +16,5 @@ describe('Realizar o login com número de CNPJ inválido', () => {
         telaInicial.inputPassInvalida();
         telaInicial.validarerroPass();
     });
+    
 })
