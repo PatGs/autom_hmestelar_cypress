@@ -5,14 +5,9 @@ describe('Realizar o login com sucesso na plataforma Estelar', () => {
         cy.visit('/')
     })
 
-    it('Inserir CPF e Senha correto e realizar o Login', () => {
-        telaInicial.inputCPF();
-        telaInicial.inputPass();
-      }) 
-      
-    it('Inserir o CNPJ e Senha e realizar o Login', () => {
+    it('Logar com CNPJ e senha Corretos', () => {
         telaInicial.radioCNPJ();
         telaInicial.inputCNPJ();
         telaInicial.inputPassCNPJ();
-    })
+    })   
 })
