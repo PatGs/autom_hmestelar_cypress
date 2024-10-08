@@ -6,6 +6,5 @@ export const ELEMENTS = {
     inputCPFinvalido: 'input[id="document"]',
     inputPassInvalida: 'input[id="password"]',
     inputCNPJ: 'input[id="document"]',
-    inputCNPJinvalido: 'input[id="document"]'
-
+    inputCNPJinvalido: 'input[id="document"]',
 }

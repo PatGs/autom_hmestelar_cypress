@@ -1,13 +1,13 @@
-import telaInicial from '../../support/pageObjects/tela-inicial-login.pageObjects'
+import telaInicialLogin from '../../support/pageObjects/tela-inicial-login.pageObjects'
 
 describe('Realizar o login com sucesso na plataforma Estelar', () => {
     beforeEach(()=>{
-        cy.visit('/')
+        cy.visit('/login')
     })
 
     it('Logar com CNPJ e senha Corretos', () => {
-        telaInicial.radioCNPJ();
-        telaInicial.inputCNPJ();
-        telaInicial.inputPassCNPJ();
+        telaInicialLogin.radioCNPJ();
+        telaInicialLogin.inputCNPJ();
+        telaInicialLogin.inputPassCNPJ();
     })   
 })

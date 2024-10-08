@@ -9,6 +9,6 @@
 
 module.exports = {
   e2e: {
-    baseUrl: 'https://apphomolog.hmestelar.com.br/login'
+    baseUrl: 'https://apphomolog.hmestelar.com.br',
     },
   }

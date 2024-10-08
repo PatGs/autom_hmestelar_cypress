@@ -1,7 +1,7 @@
 const elem = require('../elements/tela-inicial-login.elements').ELEMENTS
 
-class telaInicial{
-
+class telaInicialLogin{
+// Função de input dos campos de CPF/CNPJ e senha
     inputCPF(){
         cy.get(elem.inputCPF).type('36551095801').type('{enter}');
         cy.contains('CPF cadastrado').should('be.visible');
@@ -28,6 +28,7 @@ class telaInicial{
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CNPJ inválido, insira um CNPJ válido.');
     }
 
+// Função que realiza o clique no radio de CNPJ
     radioCNPJ(){
         //clica no radio button com o valor CNPJ
         cy.get('input[value="cnpj"]').should('be.visible').click();
@@ -35,6 +36,7 @@ class telaInicial{
         cy.contains('CNPJ cadastrado').should('be.visible');
     }
 
+// Função que valida as mensagens de erros dos campos de input de CPF/CNPJ e Senha
     validarerroCPF(){
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CPF inválido, insira um CPF válido.');
     }
@@ -44,6 +46,7 @@ class telaInicial{
     validarerroCNPJ(){
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CNPJ inválido, insira um CNPJ válido.');
     }
+
 }
 
-export default new telaInicial();
+export default new telaInicialLogin();
