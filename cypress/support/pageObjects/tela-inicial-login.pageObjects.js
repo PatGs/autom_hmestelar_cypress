@@ -48,44 +48,31 @@ class telaInicialLogin{
     }
 
     validarLGPD() {
+        // Aguarda o modal por um tempo para garantir que ele carregue
+        cy.wait(15000); // Ajuste o tempo de espera se necessário
+        
+        // Verifica se o modal de LGPD está presente no DOM
         cy.get('body').then(($body) => {
-          // Verifica se o modal está presente no DOM
           if ($body.find('div.flex.justify-between.items-start.lg\\:items-center').length > 0) {
-            // Se o modal existir, tenta interagir com ele
-            cy.get('div.flex.justify-between.items-start.lg\\:items-center')
-              .should('be.visible')
-              .then(($modal) => {
-                if ($modal.is(':visible')) {
-                  // O modal está visível, então marca o checkbox
-                  cy.get('#privacy-terms')
-                    .should('be.visible')
-                    .check({ force: true });
+            cy.get('div.flex.justify-between.items-start.lg\\:items-center', { timeout: 10000 })
+              .should('be.visible');
+            
+            // Força o clique no checkbox fora do within
+            cy.get('#privacy-terms').click({ force: true });
       
-                  // Verifica se o botão de concordar está visível e clica nele
-                  cy.contains('Li e concordo com a Política de Privacidade')
-                    .should('be.visible')
-                    .click({ force: true });
-      
-                  // Fecha o modal, se houver botão de fechar
-                  if (Cypress.$(elem.buttonClose).length > 0) {
-                    cy.get(elem.buttonClose)
-                      .should('be.visible')
-                      .click({ force: true });
-                  }
-      
-                  // Clica no botão "Li e aceito", se presente
-                  cy.contains('button', 'Li e aceito')
-                    .should('be.visible')
-                    .click({ force: true });
-                } else {
-                  cy.log('O modal está presente, mas não está visível.');
-                }
-              });
+            // Aguarda o botão ser visível e habilitado antes de clicar
+            cy.contains('button', 'Li e aceito', { timeout: 10000 })
+              .should('not.be.disabled') // Aguarda até que o botão esteja habilitado
+              .click({ force: true }); // Então clica no botão
           } else {
-            cy.log('O modal de LGPD não está presente, pulando a validação.');
+            cy.log('O modal de LGPD não está presente, o usuário já aceitou.');
           }
         });
       }
+      
+            
+      
+        
         
 }
 
