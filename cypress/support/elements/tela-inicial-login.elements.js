@@ -7,4 +7,5 @@ export const ELEMENTS = {
     inputPassInvalida: 'input[id="password"]',
     inputCNPJ: 'input[id="document"]',
     inputCNPJinvalido: 'input[id="document"]',
+    buttonClose: 'button[aria-label="Close"]',
 }

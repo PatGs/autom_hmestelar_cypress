@@ -9,6 +9,7 @@ describe('Realizar o login com sucesso na plataforma Estelar', () => {
     it('Inserir CPF e Senha correto e realizar o Login', () => {
         telaInicialLogin.inputCPF();
         telaInicialLogin.inputPass();
+        telaInicialLogin.validarLGPD();
         homeLogada.validarTextoH1();
       })
       

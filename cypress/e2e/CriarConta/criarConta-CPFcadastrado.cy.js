@@ -1,6 +1,6 @@
 import criarConta from '../../support/pageObjects/criarConta-pageObjects'
 
-describe('Teste de formulário com CPF', () => {
+describe('Teste de criar uma nova conta com CPF já cadastrado', () => {
     beforeEach(()=>{
         cy.visit('/login')
     })

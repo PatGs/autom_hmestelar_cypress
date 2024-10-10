@@ -35,7 +35,7 @@ class criarConta{
     }
     //Função que valida o modal de usuário já cadastrado
     validarCadastrado(){
-        cy.get('h1')
+        cy.get('h1', {timeout: 10000})
         .should('contain.text', 'Oba! O seu CPF já está cadastrado no HM Estelar.');
     }
 
