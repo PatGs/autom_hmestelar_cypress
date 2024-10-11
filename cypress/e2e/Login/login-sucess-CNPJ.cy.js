@@ -1,4 +1,6 @@
 import telaInicialLogin from '../../support/pageObjects/tela-inicial-login.pageObjects'
+import homeLogada from '../../support/pageObjects/home-logada-pageObjects'
+
 
 describe('Realizar o login com sucesso na plataforma Estelar', () => {
     beforeEach(()=>{
@@ -9,5 +11,8 @@ describe('Realizar o login com sucesso na plataforma Estelar', () => {
         telaInicialLogin.radioCNPJ();
         telaInicialLogin.inputCNPJ();
         telaInicialLogin.inputPassCNPJ();
-    })   
+        telaInicialLogin.validarLGPD();
+        homeLogada.validarTextoH1();
+    })
+ 
 })

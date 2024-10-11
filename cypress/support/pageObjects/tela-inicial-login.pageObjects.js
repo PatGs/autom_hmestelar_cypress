@@ -1,7 +1,7 @@
 const elem = require('../elements/tela-inicial-login.elements').ELEMENTS
 
 class telaInicialLogin{
-// Função de input dos campos de CPF/CNPJ e senha
+    // Função de input dos campos de CPF/CNPJ e senha
     inputCPF(){
         cy.get(elem.inputCPF).type('36551095801').type('{enter}');
         cy.contains('CPF cadastrado').should('be.visible');
@@ -27,8 +27,15 @@ class telaInicialLogin{
         cy.get(elem.inputCNPJinvalido).type('99999999999999').type('{enter]');
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CNPJ inválido, insira um CNPJ válido.');
     }
+    inputCPFsemEmpreendimento(){
+        cy.get(elem.inputCPF).type('31588916898').type('{enter}');
+        cy.contains('CPF cadastrado').should('be.visible');
+    }
+    inputPassSemEmpreendimento(){
+        cy.get(elem.inputPass).type('31588916898').type('{enter}')
+    }
 
-// Função que realiza o clique no radio de CNPJ
+    // Função que realiza o clique no radio de CNPJ
     radioCNPJ(){
         //clica no radio button com o valor CNPJ
         cy.get('input[value="cnpj"]').should('be.visible').click();
@@ -36,7 +43,7 @@ class telaInicialLogin{
         cy.contains('CNPJ cadastrado').should('be.visible');
     }
 
-// Função que valida as mensagens de erros dos campos de input de CPF/CNPJ e Senha
+    // Função que valida as mensagens de erros dos campos de input de CPF/CNPJ e Senha
     validarerroCPF(){
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CPF inválido, insira um CPF válido.');
     }
@@ -46,7 +53,7 @@ class telaInicialLogin{
     validarerroCNPJ(){
         cy.get('.text-xs.ml-4.mt-2.text-red-hm').should('contain.text', 'CNPJ inválido, insira um CNPJ válido.');
     }
-
+    //Função que valida o Modal de LGPD
     validarLGPD() {
         // Aguarda o modal por um tempo para garantir que ele carregue
         cy.wait(15000); // Ajuste o tempo de espera se necessário
@@ -69,10 +76,8 @@ class telaInicialLogin{
           }
         });
       }
+     
       
-            
-      
-        
         
 }
 
