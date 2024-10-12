@@ -11,8 +11,7 @@ describe('Logar na plataforma Estelar com usuário que possui empreendimento.', 
         telaInicialLogin.inputPassSemEmpreendimento();
         telaInicialLogin.validarLGPD();
         homeLogada.validarTextoH1();
-        homeLogada.validarMenuPagamentosNaoExibido("/meu-hm/pagamentos");
-
+        homeLogada.validarMenuNaoExibido("/meu-hm/pagamentos");
     })
 
 })

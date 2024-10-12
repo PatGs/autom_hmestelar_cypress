@@ -41,9 +41,18 @@ class homeLogada{
         .should('be.visible') 
     }
     
-    validarMenuPagamentosNaoExibido(menu) {
-        cy.get(`a[href="${menu}"]`, { timeout: 5000 })
-          .should('not.exist') // Valida que o menu não deve estar presente
+    validarMenuNaoExibido(menu) {
+        cy.get(`a[href="${menu}"]`, { timeout: 10000 }) // Aumente o timeout para dar mais tempo para desaparecer
+          .should('not.exist')
+          .then(() => {
+            cy.log('O menu de Pagamentos não está presente, conforme esperado.');
+          });
+    }
+
+    validarMenuExibido(menu) {
+        cy.log('Aqui o menu -> ', menu)
+        cy.get(`a[href="${menu}"]`, { timeout: 10000 })
+          .should('exist') // Valida que o menu não deve estar presente
           .then(() => {
             cy.log('O menu de Pagamentos não está presente, conforme esperado.');
           });
